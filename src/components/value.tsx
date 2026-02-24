@@ -1,10 +1,8 @@
 import type { FC } from "react";
-import { useCounterStore } from "../store/use-counter-store";
-
-
+import { useCount } from "../store/use-counter-store";
 
 const Value: FC = () => {
-  const count = useCounterStore((state) => state.value);
+  const count = useCount(); //кастомный селектор
 
   return <h2>{count}</h2>;
 };
