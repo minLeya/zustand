@@ -1,10 +1,11 @@
 import type { FC } from "react";
+import { useCounterStore } from "../store/use-counter-store";
 
-interface IProps {
-  count: number;
-}
 
-const Value: FC<IProps> = ({ count }) => {
+
+const Value: FC = () => {
+  const count = useCounterStore((state) => state.value);
+
   return <h2>{count}</h2>;
 };
 

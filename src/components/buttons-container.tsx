@@ -1,15 +1,13 @@
 import type { FC } from "react";
+import { useCounterStore } from "../store/use-counter-store";
 
-interface IProps {
-  onIncrement: () => void;
-  onDecrement: () => void;
-}
-
-const ButtonsContainer: FC<IProps> = ({ onIncrement, onDecrement }) => {
+const ButtonsContainer: FC = () => {
+  const increment = useCounterStore((state) => state.increment);
+  const decrement = useCounterStore((state) => state.decrement);
   return (
     <div className="card">
-      <button onClick={onIncrement}>Увеличить число</button>
-      <button onClick={onDecrement}>Уменьшить число</button>
+      <button onClick={increment}>Увеличить число</button>
+      <button onClick={decrement}>Уменьшить число</button>
     </div>
   );
 };
